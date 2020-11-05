@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <form (ngSubmit)='submitDiary()' #diaryForm='ngForm'>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" id="name" name="name" [(ngModel)]="newDiary.name" #nana='ngModel' placeholder="Name of Diary" class="form-control" required>
+                <div [hidden]="nana.valid || nana.pristine" class="alert alert-danger">
+                    <p>Name is required</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="date" class="form-control" id="createddate" required [(ngModel)]="newDiary.date" #date="ngModel">
+                <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
+                    <p>Date is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <textarea name="description" required id="desc" #desc="ngModel" cols="50" rows="5" [(ngModel)]='newDiary.description'></textarea>
+                <div [hidden]="desc.valid || desc.pristine" class="alert alert-danger">
+                    <p>Description is required</p>
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-outline-success">Add Diary</button>
+    </form>
+</div>

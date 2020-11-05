@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="text-align: center;">My Diary</h1>
+    <hr>
+
+    <div class="row">
+
+
+        <div id='card' *ngFor='let diary of diaries;let i = index ' class="col-md-4">
+            <div class="card justify-content-center text-center">
+                <div class="card-body">
+                    <p class="author">{{diary.name}}</p>
+                    <p>{{diary.description}}</p>
+                    <p class="posted">{{diary.date|date|uppercase}}</p>
+                    <app-details-dairy (isComplete)='deleteDiary($event, i)'></app-details-dairy>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="formlink">
+            <h4 style="text-align: center;">Add Your Dairy</h4>
+            <app-diary-form (addDiary)='newDiary($event)'></app-diary-form>
+        </div>
+
+    </div>
+</div>
